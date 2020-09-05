@@ -37,7 +37,7 @@ We will create five routes. The data for these routes is provided in the `data` 
 * DELETE /users/:id
   * Delete one user by it's id
 
-_You may chose to alter these routes so they appear as ('/', '/:id') in your users file and then prefix them all with '/users' when we import them into index.. but you are not required to do so_
+_You may choose to alter these routes so they appear as ('/', '/:id') in your users file and then prefix them all with '/users' when we import them into index.. but you are not required to do so_
 
 #### 3. Controllers
 
