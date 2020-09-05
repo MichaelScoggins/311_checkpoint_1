@@ -1,32 +1,11 @@
 const users = require('../data/index')
-let counter = users.length + 1
-
-const getUsers = (req, res) => {
-  res.json(users.filter((i) => i.isActive !== false))
-}
-
-const showUser = (req, res) => {
-  let user = users[req.params.id - 1]
-  if (user.isActive == false) {
-    res
-      .status(400)
-      .json({ message: `No contact with the id of ${req.params.id}` })
-  } else {
-    res.json(user)
-  }
-}
-
-const createUser = (req, res) => {  
-  users.push({ id: counter++, ...req.body })
-  res.json(users[users.length - 1])
-}
 
 const updateUser = (req, res) => {
   let user = users[req.params.id - 1]
   if (user.isActive == false) {
     res
       .status(400)
-      .json({ message: `No contact with the id of ${req.params.id}` })
+      .json({ message: `No user with the id of ${req.params.id}` })
   } else {
     // update info else stay the same
     user.name = req.body.name ? req.body.name : user.name
@@ -42,24 +21,10 @@ const updateUser = (req, res) => {
     user.company.catchPhrase = req.body.company.catchPhrase ? req.body.company.catchPhrase : user.company.catchPhrase
     user.company.bs = req.body.company.bs ? req.body.company.bs : user.company.bs
   }
-
-
-  res.json(user)
+  res.json(user) // why doesn't this always show user's new object, something to do with async/promises?
+  
 }
 
-const deleteUser = (req, res) => {
-  let user = users[req.params.id - 1]
-  console.log(user)
-  user.isActive = false
-  res
-    .status(400)
-    .json({ message: `No user with the id of ${req.params.id}` })
-}
+// i know there's a better way to do this... please let me know
 
-module.exports = {
-  getUsers,
-  showUser,
-  createUser,
-  updateUser,
-  deleteUser
-}
+module.exports = { updateUser }
