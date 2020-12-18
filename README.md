@@ -37,11 +37,11 @@ We will create five routes. The data for these routes is provided in the `data` 
 * DELETE /users/:id
   * Delete one user by it's id
 
-_You may chose to alter these routes so they appear as ('/', '/:id') in your users file and then prefix them all with '/users' when we import them into index.. but you are not required to do so_
+_You may choose to alter these routes so they appear as ('/', '/:id') in your users file and then prefix them all with '/users' when we import them into index.. but you are not required to do so_
 
 #### 3. Controllers
 
-* Create a `controllers` folder to hold our routes. Underneath make a file called `users.js` to represent the users controller
+* Create a `controllers` folder to hold our controllers. Underneath make a file called `users.js` to represent the users controller
 
 We will create five controller functions. These will correspond to the routes above. ALL LOGIC for retrieving or updating the "data" should be done here. After that is complete we will import these controller functions into the routes. The end result of your routes should look like this: `router.get('/users', usersController.listUsers)`. Create the following controller functions:
 
